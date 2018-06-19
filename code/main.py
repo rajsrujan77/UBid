@@ -26,7 +26,7 @@ def upload_file():
         main_data = pd.read_csv('../data/data.csv')
         x = [main_data.iloc[x, 0] for x in range(main_data['name'].size) if main_data.iloc[x, 1] == category]
         print('Users in the category: ',category,x)
-        with open('data.csv', 'a') as f:
+        with open('../data/data.csv', 'a') as f:
             writer = csv.writer(f)
             writer.writerow([name, category])
 
