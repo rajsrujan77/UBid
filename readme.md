@@ -1,9 +1,10 @@
 Files in the directory:
 
-    1. main.py: The main python script of the application.
+    1. code - main.py: The main python script of the application.
     2. templates - file-upload.html: basic html script of the form.
-    3. data.csv: Example data consisting of 2 columns - name and category.
-
+    3. data - data.csv: Example data consisting of 2   columns - name and category.
+	4. code - register: files used for registration
+	
 Jobs done by the API:
 
     Input:

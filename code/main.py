@@ -1,13 +1,17 @@
 import os
 from flask import Flask, flash, request, redirect, url_for, render_template
-from werkzeug.utils import secure_filename
 import csv
 import pandas as pd
+import sys
+# os.listdir()
+sys.path.append('./register')
+from main_register import simple_page
 
 UPLOAD_FOLDER = '../uploads'
 ALLOWED_EXTENSIONS = {'pdf'}
 
 app = Flask(__name__, template_folder='../templates')
+app.register_blueprint(simple_page)
 app.secret_key = "abcd1234"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -25,7 +29,7 @@ def upload_file():
 
         main_data = pd.read_csv('../data/data.csv')
         x = [main_data.iloc[x, 0] for x in range(main_data['name'].size) if main_data.iloc[x, 1] == category]
-        print('Users in the category: ',category,x)
+        print('Users in the category: ', category, x)
         with open('../data/data.csv', 'a') as f:
             writer = csv.writer(f)
             writer.writerow([name, category])
